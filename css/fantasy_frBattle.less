@@ -1,0 +1,1333 @@
+@charset "UTF-8";
+
+/*
+  2016-12-26
+  Gtrix
+  WebDev Part_CYJ
+*/
+//폰트확인용
+@import url(https://cdn.rawgit.com/openhiun/hangul/14c0f6faa2941116bb53001d6a7dcd5e82300c3f/nanumbarungothic.css);
+/*reset*/
+html, body {margin:0;padding:0; overflow: hidden;}
+img {border:none;}
+body, div, ul, li, dl, dt, dd, ol, p, h1, h2, h3, h4, h5, h6, form, section {margin: 0;	padding: 0;}
+li {list-style-type: none;}
+img, fieldset, iframe {border: 0;}
+img {border: none; vertical-align: top;}
+input {vertical-align: middle; -moz-box-sizing:border-box; -webkit-box-sizing: border-box; box-sizing:border-box;}
+a {text-decoration: none; color:#808080;}
+em {font-style: normal;}
+textarea:focus, input:focus{outline: 0;}
+.clear {clear: both;}
+body, th, td, input, select, textarea, button { font-size: 12px; line-height: 1.5; font-family: 'Nanum Barun Gothic', Tahoma , sans-serif; color: #666; }
+.hidden{font:0px/0 a; height:0; overflow:hidden; position:absolute; visibility:hidden; width:0;}
+.hide{display:none !important;}
+
+//basic
+@mainBlue:#1b58c3;
+@subBlue:#3274e9;
+@bgBlue:#1d63dd;
+@select:#fffed0;
+@pointYellow:#fefc57;
+@pointRed:#fa3b54;
+@subText:#b2ceff;
+@gray:#b0b0b0;
+@line:#b2b3b8;
+@images:"../images/frBattle";
+@boxCheck:1px solid #000;
+
+.border-radius(@radius){
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+.linear-gradient(@color1, @color2, @colorBase) {
+  background: @colorBase;
+  background: -webkit-linear-gradient(@color1, @color2);
+  background: -o-linear-gradient(@color1, @color2);
+  background: -moz-linear-gradient(@color1, @color2);
+  background: linear-gradient(@color1, @color2);
+}
+//for mobile
+.M_linear-gradient(@direction, @color1, @color2, @colorBase) {
+  background: @colorBase;
+  background: -webkit-linear-gradient(@direction, @color1, @color2);
+  background: -o-linear-gradient(@direction, @color1, @color2);
+  background: -moz-linear-gradient(@direction, @color1, @color2);
+  background: linear-gradient(@direction, @color1, @color2);
+}
+.boxSize(@width, @height){
+  width: @width;
+  height: @height;
+}
+
+
+/*-----PC VER.-----*/
+.wrap{
+  .boxSize(1280px, 716px);
+  border-top:4px solid @subBlue;
+  position: relative;
+  z-index: 9;
+
+  .header{
+    height: 122px;
+    border-bottom: 1px solid #1549a5;
+    position:relative;
+    //titleBox
+    .titleBox{
+      float:left;
+      position: relative;
+      left:0;
+      .boxSize(300px, 122px);
+      border-right: 1px solid @line;
+      .logo{
+        position:absolute;
+        top:25px;
+        left:20px;
+      }
+      .title{
+        position:absolute;
+        top:35px;
+        right:29px;
+      }
+      a{
+        position: absolute;
+        top:68px;
+        right:40px;
+        color:@subBlue;
+        font-size:13px;
+        i{
+          vertical-align: middle;
+        }
+      }
+    }
+    //matchUp
+    .matchUp{
+      position:relative;
+      left:301px;
+      .boxSize(979px, 112px);
+      //matchDate
+      .matchDate{
+        position: absolute;
+        top:0;
+        width:979px;
+        li{
+          position:relative;
+          float: left;
+          .boxSize(130px, 35px);
+          .linear-gradient(rgba(255,255,255,1), rgba(68,68,68,0.1), #eee);
+          font-weight: bold;
+          font-size: 15px;
+          text-align: center;
+          line-height: 35px;
+          border-bottom: 1px solid @line;
+          border-right: 1px solid @line;
+          a{
+            color:#000;
+          }
+          &.prev,&.next{
+            width:30px;
+            i{
+              line-height: 37px;
+            }
+          }
+          .dayOfWeek{
+            color:#999;
+          }
+          &.todayMatch{
+            background: #fff;
+            color:@mainBlue;
+            strong{
+              display: inline-block;
+              position: absolute;
+              top:26px;
+              left:39px;
+              .boxSize(50px, 18px);
+              line-height: 18px;
+              background: @mainBlue;
+              color:@pointYellow;
+              .border-radius(15px);
+              font-size:11px;
+              z-index: 99999;
+            }
+          }
+        }
+      }
+      //matchList
+      .matchList{
+        position: absolute;
+        top: 36px;
+        width:979px;
+        z-index: 999;
+        li{
+          position: relative;
+          float: left;
+          .boxSize(195px, 86px);
+          border-right: 1px solid @line;
+          .matchTeam{
+            display: inline-block;
+            position: absolute;
+            top:15px;
+            text-align: center;
+            width:55px;
+            color:#000;
+            font-weight: bold;
+            img{
+              .boxSize(55px, 37px);
+            }
+            .teamName{
+              margin-top: 5px;
+            }
+          }
+          .homeTeam{
+            left:7px;
+          }
+          .awayTeam{
+            left: 134px;
+          }
+          .matchScore{
+            display: inline-block;
+            text-align: center;
+            width:62px;
+            position: absolute;
+            left:66px;
+            top:20px;
+            .myGame{
+              color:@pointRed;
+              position: absolute;
+              top:-12px;
+              left:4px;
+              font-family: Tahoma;
+            }
+            .score{
+              font-size:18px;
+              color:#000;
+              font-family: Tahoma;
+            }
+            .time{
+              display: block;
+              position: relative;
+              top:3px;
+              margin: auto;
+              .boxSize(50px, 20px);
+              background: @gray;
+              .border-radius(15px);
+              color:#fff;
+              text-align: center;
+              line-height: 23px;
+            }
+            i{
+              color:@mainBlue;
+              position:absolute;
+              bottom:-26px;
+              left:24px;
+            }
+          }
+          &.matchMine{
+            background: @select;
+          }
+          &.matchNone{
+            text-align: center;
+            line-height: 86px;
+            color:@gray;
+          }
+        }
+        li:nth-child(1){
+          width:194px;
+        }
+      }
+    }
+  }
+
+  .clubSection{
+    height: 593px;
+    position:relative;
+    //myTeamSection
+    .teamSection{
+      .boxSize(380px, 593px);
+      position:absolute;
+      //point box
+      .teamPoint{
+        position: relative;
+        .boxSize(379px, 79px);
+        background: @mainBlue;
+        border-right:1px solid #1549a5;
+        img{
+          position:absolute;
+          top:8px; left:55px;
+        }
+        .teamName{
+          position: absolute;
+          top:10px; left:155px;
+          color:#fff;
+          font-size: 18px;
+        }
+        .teamReal{
+          position: absolute;
+          top:35px; left:155px;
+          color:@pointYellow;
+          font-size: 26px;
+        }
+      }
+      //comment top box
+      .commentBox{
+        position: relative;
+        height: 130px;
+        border-bottom: 1px solid @line;
+        .commentTitle{
+          height: 40px;
+          border-bottom: 1px solid @gray;
+          strong{
+            display: block;
+            position: absolute;
+            top:0; left:0;
+            .boxSize(259px, 40px);
+            color:#002d91;
+            font-size: 18px;
+            border-right: 1px solid @gray;
+            line-height: 40px;
+            padding-left: 10px;
+            box-sizing: border-box;
+          }
+          .commentRefresh{
+            display: block;
+            position: absolute;
+            top:0; right: 1px;
+            .boxSize(119px, 40px);
+            padding: 0;
+            border:0;
+            background: #fff;
+            color:#000;
+            font-size: 13px;
+            i{
+              margin-right: 3px;
+            }
+            .second{
+              color:#a9a9a9;
+            }
+          }
+        }
+        .commentInput{
+          position: relative;
+          height: 89px;
+          textarea{
+            border:0;
+            .boxSize(253px, 82px);
+            font-size: 14px;
+            padding: 5px 2px 2px 5px;
+          }
+          .count{
+            display: inline-block;
+            position: absolute;
+            top:0; right:0;
+            .boxSize(117px, 40px);
+            font-size: 13px;
+            line-height: 40px;
+            text-align: center;
+          }
+          .enter{
+            display: inline-block;
+            position: absolute;
+            bottom: 10px; right:10px;
+            .boxSize(102px, 40px);
+            background: #484b52;
+            color: #fff;
+            border: 0;
+          }
+        }
+      }
+      //comment list
+      .teamComment{
+        height: 382px;
+        position: relative;
+        overflow-y: scroll;
+        .commentList li{
+          position: relative;
+          padding: 15px;
+          border-bottom: 1px solid @gray;
+          .nickname{
+            font-size: 13px;
+            color:#000;
+          }
+          .rankTop{
+            color: @pointRed;
+          }
+          .commentDate{
+            position: absolute;
+            right: 15px;
+          }
+          &.active{
+            background: @select;
+          }
+          .comment{
+            margin-top: 5px;
+          }
+          .commentNone{
+            text-align: center;
+          }
+        }
+        .paging{
+          position: relative;
+          text-align: center;
+          font-size: 13px;
+          margin-top: 8px;
+          padding-bottom: 5px;
+          li{
+            display: inline-block;
+            border-left:1px solid @gray;
+            padding:0 3px 0 5px;
+            a{
+              color:#000;
+              font-weight: bold;
+            }
+            &:nth-child(1){
+              border-left:0;
+            }
+            &.on a{
+              color: @pointRed;
+            }
+          }
+        }
+      }
+      &.homeTeam{
+        left:0;
+      }
+      &.awayTeam{
+        right:0;
+        .teamPoint{
+          border-right:0;
+          border-left:1px solid #1549a5;
+        }
+      }
+    }
+
+
+    //rankSection
+    .rankSection{
+      .boxSize(520px, 593px);
+      position:absolute;
+      left:380px;
+      background: @bgBlue;
+      //matchSatae
+      .matchState{
+        position: relative;
+        .boxSize(521px, 79px);
+        background: @mainBlue;
+        color:#fff;
+        text-align: center;
+        overflow: hidden;
+        .matchNow li{
+          display: block;
+          strong{
+            display: inline-block;
+            font-size: 34px;
+            margin-top: 4px;
+          }
+          p{
+            color:@subText;
+            font-size: 14px;
+            margin-top: -5px;
+          }
+        }
+        .matchResult{
+          .boxSize(60px, 60px);
+          position: absolute;
+          top:9px; left:40px;
+          .mR{
+            display: block;
+            position: absolute;
+            top:0; left:0;
+            .boxSize(60px, 60px);
+            .border-radius(50%);
+            text-align: center;
+            line-height: 60px;
+            font-size: 40px;
+            &.victory{
+              background: @pointYellow;
+              color: #184ba5;
+            }
+            &.defeat, &.lose{
+              background: #184ba5;
+              color: @subText;
+            }
+          }
+          &.rightR{
+            left: 420px;
+          }
+        }
+      }
+      //myState
+      .myState{
+        .boxSize(440px, 124px);
+        position: relative;
+        top:20px; left:40px;
+        background: #3274e9;
+        .myGame{
+          .info{
+            position: relative;
+            height: 80px;
+            border-bottom: 1px solid @bgBlue;
+            img{
+              position: absolute;
+              top:9px; left:5px;
+            }
+            .myName{
+              position: absolute;
+              top:14px; left:100px;
+              color: @subText;
+              font-size: 18px;
+            }
+            .myPoint{
+              position: absolute;
+              top:36px; left: 100px;
+              color: @pointYellow;
+              font-size: 22px;
+            }
+            .myRank{
+              position: absolute;
+              right: 25px;
+              line-height: 80px;
+              color: #fff;
+              font-size: 34px;
+            }
+          }
+          .lineupCheck{
+            position: relative;
+            height: 43px;
+            text-align: center;
+            strong{
+              display: inline-block;
+              position: relative;
+              line-height: 43px;
+              color: @subText;
+              font-size: 18px;
+            }
+            .lineup{
+              display: inline-block;
+              position: relative;
+              .boxSize(50px, 20px);
+              .border-radius(10px);
+              color: #fff;
+              line-height: 22px;
+              margin-left: 15px;
+              &.ok{
+                background: #07b4b0;
+              }
+              &.none{
+                background: #e95a6d;
+              }
+            }
+          }
+        }
+        .otherGame{
+          position: relative;
+          text-align: center;
+          .leftLogo{
+            position: absolute;
+            top:9px; left:10px;
+          }
+          .rightLogo{
+            position: absolute;
+            top:9px; right:10px;
+          }
+          strong{
+            display: inline-block;
+            font-size: 18px;
+            color: @subText;
+            margin-top: 20px;
+            font-family: Tahoma;
+          }
+          .goMyGame{
+            display: block;
+            position: absolute;
+            top: 60px; left: 129px;
+            .boxSize(182px, 40px);
+            background: @pointYellow;
+            font-size: 15px;
+            color: @mainBlue;
+            font-weight: bold;
+            line-height: 40px;
+          }
+        }
+      }
+
+      //rank 50
+      .rankTitle{
+        display: block;
+        .boxSize(440px, 56px);
+        position: relative;
+        top:20px; left:40px;
+        text-align: center;
+        color:#fff;
+        font-size: 25px;
+        letter-spacing: 3px;
+        line-height: 70px;
+        text-shadow: 1px 2px #0a427c;
+        font-family: Tahoma;
+      }
+      .rankWrap{
+        .boxSize(457px, 304px);
+        position: relative;
+        top:20px; left:40px;
+        background: @mainBlue;
+        .rankState{
+          background-image: url('@{images}/bg_kbo.png'), url('@{images}/bg_kbo.png');
+          background-repeat: no-repeat, no-repeat;
+          background-position: 15px center, 235px center;
+          overflow-y: scroll;
+          display: inline-flex;
+          .teamRank{
+            .boxSize(220px, 304px);
+            position: relative;
+            font-size: 13px;
+            p{
+              .boxSize(202px, 30px);
+              background: @subBlue;
+              position: relative;
+              top: 10px; left : 10px;
+              color: @subText;
+              text-align: center;
+              line-height: 30px;
+            }
+            .rankList{
+              width:202px;
+              position: relative;
+              top:10px; left:10px;
+              li{
+                height: 30px;
+                color: #fff;
+                line-height: 30px;
+                text-align: center;
+                border-top: 1px solid @subBlue;
+                &:nth-child(1){
+                  border-top: 0;
+                }
+              }
+            }
+            .se01{
+              display: inline-block;
+              width: 45px;
+            }
+            .se02{
+              display: inline-block;
+              width: 90px;
+            }
+            .se03{
+              display: inline-block;
+              width: 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //guide
+  .popWrap{
+    .boxSize(100%, 720px);
+    position: absolute;
+    top:-4px; left:0;
+    z-index: 99999;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    .guide{
+      .boxSize(480px, 310px);
+      .border-radius(5px);
+      position: relative;
+      top:206px;
+      margin: auto;
+      background: #fff;
+      font-size: 15px;
+      p{
+        .boxSize(450px, 70px);
+        background: #488aff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        padding-left: 30px;
+        color: #fff;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 70px;
+      }
+      ol{
+        width:413px;
+        color:#333;
+        font-weight: bold;
+        margin: 30px 0 0 30px;
+      }
+      .close{
+        .boxSize(102px, 40px);
+        display: block;
+        position: relative;
+        margin: 30px auto 0 auto;
+        background: #333;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+      }
+    }
+  }
+}
+//for PC
+@media (min-width : 1285px) {
+  body{
+    background: #0b2849;
+  }
+  .wrap{
+    background: #fff;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top: -358px;
+    margin-left: -640px;
+    border-bottom:@boxCheck;
+    border-left:@boxCheck;
+    border-right:@boxCheck;
+  }
+}
+
+
+
+
+/*-----MOBILE VER.-----*/
+.m_wrap{
+  img{max-width: 100%}
+  position:relative;
+  width:100%;
+  max-width:720px;
+  min-width: 320px;
+  margin:0 auto;
+  background: #fff;
+
+  //header
+  .m_header{
+    position: relative;
+    margin: auto;
+    .boxSize(100%, 50px);
+    text-align: center;
+    border-bottom:2px solid @subBlue;
+    .m_logo{
+      position: relative;
+      .boxSize(71px, 38px);
+      margin-top: 6px;
+    }
+    .m_title{
+      position: relative;
+      .boxSize(107px, 29px);
+      margin: 10px 0 0 5px;
+    }
+  }
+
+  //date
+  .m_matchDate{
+    box-sizing: border-box;
+    position: relative;
+    border:1px solid @line;
+    .boxSize(100%, 45px);
+    .M_linear-gradient(top, #fff, #ddd, #fff);
+    li{
+      box-sizing: border-box;
+      position: relative;
+      float: left;
+      .boxSize(80%, 44px);
+      font-size: 18px;
+      color:#000;
+      font-weight: bold;
+      text-align: center;
+      line-height: 45px;
+      border-left:1px solid @line;
+      .dayOfWeek{
+        color:@gray;
+      }
+      strong{
+        display: inline-block;
+        .boxSize(60px, 20px);
+        .border-radius(15px);
+        line-height: 21px;
+        background: @subBlue;
+        font-size: 12px;
+        color: @select;
+        font-family: Tahoma;
+        vertical-align: middle;
+      }
+      &:nth-child(1){
+        border:0;
+      }
+      &.prev, &.next{
+        width:10%;
+        font-weight: normal;
+        a{
+          color:#000;
+        }
+      }
+    }
+  }
+
+  //list
+  .m_slideWrap1{
+      height: 90px;
+      overflow: hidden;
+    .m_slideWrap2{
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      .m_matchList{
+        position: relative;
+        .boxSize(100%, 90px);
+        border:1px solid #dddce4;
+        left:0;
+        li{
+          box-sizing: border-box;
+          float: left;
+          position: relative;
+          overflow: hidden;
+          text-align: center;
+          .boxSize(200px, 90px);
+          border-left:1px solid #dddce4;
+          img{
+            .boxSize(60px, 42px);
+          }
+          div{
+            position: absolute;
+            width:60px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            color:#000;
+            &.matchTeam{
+              top:15px;
+              &.homeTeam{
+                left:4px;
+              }
+              &.awayTeam{
+                left:135px;
+              }
+            }
+            &.matchScore{
+              left:65px;
+              width:70px;
+              margin: 0;
+              text-align: center;
+              .myGame{
+                position: absolute;
+                top:5px;
+                left:4px;
+                display: block;
+                font-size: 13px;
+                font-family: Tahoma;
+                color:@pointRed;
+              }
+              .score{
+                position: relative;
+                left:0;
+                top:20px;
+                font-size: 20px;
+                font-family: Tahoma;
+              }
+              .time{
+                position: relative;
+                top:20px;
+                .boxSize(50px, 20px);
+                .border-radius(10px);
+                line-height: 22px;
+                font-size: 12px;
+                color: #fff;
+                margin: auto;
+                background: @gray;
+              }
+              //myMatch icon
+              i{
+                position: relative;
+                top:22px;
+                color: @mainBlue;
+              }
+            }
+          }
+          &.matchMine{
+            background: @select;
+          }
+          &.matchNone{
+            line-height: 90px;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  //matchState
+  .m_matchState{
+    position: relative;
+    .boxSize(100%, 80px);
+    background: @mainBlue;
+    .teamPoint{
+      .boxSize(30%, 80px);
+      float: left;
+      text-align: center;
+      .teamName{
+        color:#fff;
+        display: block;
+        font-size: 20px;
+        margin-top: 15px;
+      }
+      .teamReal{
+        color: @pointYellow;
+        display: block;
+        font-size: 18px;
+        margin-top: -5px;
+      }
+      &.homeTeam{
+        background: url('@{images}/m_bg_6.png') no-repeat;
+        background-position: center;
+        background-size: 89px 62px;
+      }
+      &.awayTeam{
+        background: url('@{images}/m_bg_1.png') no-repeat;
+        background-position: center;
+        background-size: 89px 62px;
+      }
+    }
+    .matchNow{
+      .boxSize(40%, 80px);
+      float: left;
+      color: #fff;
+      text-align: center;
+      ul li{
+        strong{
+          display: block;
+          font-size: 20px;
+          margin-top: 8px;
+        }
+        p{
+          font-size: 14px;
+          font-weight: bold;
+          color: @subText;
+          margin-top: -5px;
+          line-height: 17px;
+        }
+        &.matchEnd{
+          text-align: center;
+          strong{
+            margin-top:3px;
+            font-size: 18px;
+          }
+          .matchResult{
+            display: inline-block;
+            position: relative;
+            .mR{
+              display: inline-block;
+              .boxSize(30px, 30px);
+              .border-radius(50%);
+              line-height: 30px;
+              &.victory{
+                color: @mainBlue;
+                background: @pointYellow;
+              }
+              &.defeat, &.lose{
+                color: @subText;
+                background: #184ba5;
+              }
+            }
+            &.leftR{
+              top:29px;
+              left:-52px;
+            }
+            &.rightR{
+              top:-25px;
+              left:52px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //tab
+  .m_tab{
+    position: relative;
+    .boxSize(100%, 40px);
+    padding: 8px 0 0 0;
+    li{
+      .boxSize(33.3%, 30px);
+      box-sizing: border-box;
+      float: left;
+      border-top:1px solid @line;
+      border-bottom:1px solid @line;
+      border-right:1px solid @line;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 30px;
+      .M_linear-gradient(top, #fff, #ddd, #fff);
+      &.active{
+        background: #fff;
+        border-bottom:0;
+        a{
+          color:#000;
+        }
+      }
+      &:nth-child(3){
+        border-right: 0;
+      }
+    }
+  }
+
+  //myState
+  .m_myState{
+   position: relative;
+    .boxSize(100%, 150px);
+    background: @mainBlue;
+    padding-top: 10px;
+    .myGame{
+      position: relative;
+      .boxSize(96%, 140px);
+      background: #3274e9;
+      margin-left: 2%;
+      .info{
+        box-sizing: border-box;
+        height: 90px;
+        border-bottom: 1px solid @mainBlue;
+        img{
+          .boxSize(92px, 67px);
+          margin-top: 12px;
+          margin-left: 10px;
+        }
+        .myName{
+          display: block;
+          position: absolute;
+          top:12px;
+          left:120px;
+          color:@subText;
+          font-size: 14px;
+        }
+        .myPoint{
+          display: block;
+          position: absolute;
+          top:28px;
+          left:120px;
+          color:@pointYellow;
+          font-size: 16px;
+        }
+        .myRank{
+          display: block;
+          position: absolute;
+          top:52px;
+          left:120px;
+          color:#fff;
+          font-size: 20px;
+        }
+      }
+      .lineupCheck {
+        height: 50px;
+        text-align: center;
+        color: @subText;
+        font-size: 16px;
+        strong{
+          line-height: 50px;
+        }
+        .lineup{
+          display: inline-block;
+          .boxSize(55px, 20px);
+          .border-radius(10px);
+          background: #e95a6d;
+          text-align: center;
+          font-size: 13px;
+          color: #fff;
+          line-height: 21px;
+          margin-left: 5px;
+          &.ok{background: #07b4b0;}
+        }
+      }
+    }
+    .otherGame{
+      position: relative;
+      .boxSize(95%, 140px);
+      background: #3274e9;
+      margin-left: 2.5%;
+      text-align: center;
+      img{
+        .boxSize(92px, 67px);
+        position: absolute;
+        top:10px;
+        &.leftLogo{
+          left:5px;
+        }
+        &.rightLogo{
+          right:5px;
+        }
+      }
+      strong{
+        display: inline-block;
+        color: @subText;
+        font-size: 16px;
+        margin-top: 30px;
+      }
+      .goMyGame{
+        display: block;
+        position: relative;
+        .boxSize(200px, 35px);
+        background: @pointYellow;
+        color: @mainBlue;
+        line-height: 35px;
+        font-weight: bold;
+        font-size: 16px;
+        margin: 40px auto 0 auto;
+      }
+    }
+  }
+
+  //ranking
+  .m_rankWrap{
+    position: relative;
+    width:100%;
+    background: @mainBlue;
+    text-align: center;
+    padding-bottom: 20px;
+    .title{
+      display: inline-block;
+      position: relative;
+      font-size:22px;
+      color: #fff;
+      margin: 5px 0;
+      text-shadow: 1px 2px #0a427c;
+      font-family: Tahoma;
+      letter-spacing: 3px;
+    }
+    .rankState{
+      width:100%;
+      display: inline-flex;
+      background-image: url('@{images}/m_bg_6.png'), url('@{images}/m_bg_6.png');
+      background-repeat: no-repeat, no-repeat;
+      background-position: 5% 10%, 94% 10%;
+      background-size: 45%, 45%;
+      .teamRank{
+        position: relative;
+        width:45.9%;
+        margin-left: 2.5%;
+        text-align: center;
+        p{
+          .boxSize(100%, 30px);
+          background: @subBlue;
+          color:@subText;
+          font-size: 13px;
+          text-align: center;
+          line-height: 30px;
+        }
+        .rankList{
+          li{
+            color:#fff;
+            height: 25px;
+            border-bottom:1px solid @subBlue;
+            line-height: 27px;
+          }
+        }
+        .se01{display:inline-block; width:20%;}
+        .se02{display:inline-block; width:48%;}
+        .se03{display:inline-block; width:28%;}
+      }
+    }
+  }
+
+  //comment
+  .m_commentBox{
+    position: relative;
+    .boxSize(100%, 150px);
+    .commentTitle{
+      position: relative;
+      .boxSize(100%, 50px);
+      .second{
+        position: absolute;
+        display: inline-block;
+        top:0; right: 50px;
+        width:100px;
+        text-align: right;
+        color: #a9a9a9;
+        font-size: 13px;
+        line-height: 50px;
+      }
+      .commentRefresh{
+        position: absolute;
+        top:7px; right:10px;
+        .boxSize(35px, 35px);
+        .M_linear-gradient(top, #fff, #ddd, #fff);;
+        .border-radius(5px);
+        border: 1px solid @line;
+        font-size: 22px;
+        color:#888;
+        line-height: 35px;
+        text-align: center;
+        padding: 0;
+      }
+    }
+    .commentInput{
+      position: relative;
+      .boxSize(96%, 100px);
+      box-sizing: border-box;
+      border:1px solid @line;
+      background: #e9e9e9;
+      margin-left: 2%;
+      textarea{
+        position: absolute;
+        top:0; left:0;
+        .boxSize(70%, 98px);
+        border:0;
+        box-sizing: border-box;
+        background: #e9e9e9;
+        font-size: 13px;
+        padding: 5px 0 0 5px;
+      }
+      .count{
+        display: block;
+        position: absolute;
+        top:15px; right:5px;
+        width: 25%;
+        text-align: center;
+        font-size: 14px;
+      }
+      .enter{
+        position: absolute;
+        bottom:5px; right:5px;
+        .boxSize(25%, 45px);
+        border:0;
+        background: #444;
+        color:#fff;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+
+  //comment list
+  .m_teamComment{
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+    .commentList{
+      position: relative;
+      width: 96%;
+      margin-left: 2%;
+      li{
+        padding: 10px;
+        border-bottom:1px solid #ccc;
+        font-size: 14px;
+        color: #999;
+        .nickname{
+          color: #000;
+          font-size: 13px;
+        }
+        .commentDate {
+          position: absolute;
+          right: 10px;
+          color: #999;
+          font-size: 12px;
+        }
+        .commentNone{
+          text-align: center;
+        }
+      }
+    }
+    .more{
+      position: relative;
+      .boxSize(96%, 40px);
+      .border-radius(5px);
+      .M_linear-gradient(top, #fff, #ddd, #fff);;
+      border:1px solid @line;
+      margin-left: 2%;
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 40px;
+      color: #222;
+      font-weight: bold;
+      i{
+        color: #666;
+      }
+      .pCount{
+        color: #888;
+        span{
+         color: @subBlue;
+        }
+      }
+    }
+  }
+
+  //footer
+  .m_footer{
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid @line;
+    span{
+      color:#bbb;
+      font-size:11px;
+    }
+    .btns{
+      display: inline-block;
+      position: absolute;
+      left:5px;
+      color: #4588ff;
+      font-size: 13px;
+    }
+    .goTop{
+      display: inline-block;
+      position: absolute;
+      right:5px;
+      color: #4588ff;
+      font-size: 13px;
+    }
+  }
+
+  //guide
+  .m_popWrap{
+    .boxSize(100%, 100%);
+    position: absolute;
+    top:-4px; left:0;
+    z-index: 99999;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    .guide{
+      position: fixed;
+      top:15%; left:50%;
+      max-width: 680px;
+      width:80%;
+      margin-left:-40%;
+      background: #fff;
+      .border-radius(5px);
+      p{
+        box-sizing: border-box;
+        .boxSize(100%, 50px);
+        background: @mainBlue;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        color: #fff;
+        font-weight: bold;
+        line-height: 50px;
+        padding-left: 10px;
+        font-size: 20px;
+      }
+      ol{
+        padding: 10px;
+        font-size: 13px;
+        color: #000;
+        li{margin-bottom: 5px;}
+      }
+      .close{
+        display: block;
+        position: relative;
+        .boxSize(70px, 40px);
+        margin: 0 auto 15px auto;
+        background: #484b52;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 40px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (min-width : 721px) {
+  .m_popWrap{
+    .guide{
+      margin-left: -340px !important;
+    }
+  }
+}

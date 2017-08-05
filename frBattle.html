@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta name="description" content="지트릭스 판타지 스타디움 홈페이지" />
+    <meta name="author" content="Gtirx" />
+    <meta name="keywords" content="Gtrix, 지트릭스, FantasyStadium, 판타지스타디움, Baseball Game, Club Battle, 구단대전" />
+    <!--<meta name="viewport" content="width=1280">-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>판타지 스타디움 구단대전</title>
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="css/fantasy_frBattle.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <style type="text/css">
+        /*basic
+        @font-face {
+            font-family: 'NanumBarunGothic';
+            src: url('../fonts/NanumBarunGothic.eot'); src: local(※), url('../fonts/NanumBarunGothic.woff') format("woff"), url('../fonts/NanumBarunGothic.ttf') format("truetype");
+        }*/
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <!--header-->
+        <header class="header">
+            <!--타이틀 및 가이드-->
+            <div class="titleBox">
+                <img class="logo" src="images/frBattle/icon_logo.png" alt="판타지 스타디움">
+                <img class="title" src="images/frBattle/icon_title.png" alt="구단대전">
+                <a class="btns" href="#guide"><i class="fa fa-info-circle fa-2x"></i> 게임 가이드 ></a>
+            </div>
+            <!--경기 일정 및 리스트-->
+            <div class="matchUp">
+                <!--경기 일정-->
+                <ul class="matchDate">
+                    <li class="prev"><a href="#"><i class="fa fa-chevron-left fa-lg"></i></a></li>
+                    <li><a href="#"> 1.09 <span class="dayOfWeek">(월)</span> </a></li>
+                    <li><a href="#"> 1.10 <span class="dayOfWeek">(화)</span> </a></li>
+                    <li><a href="#"> 1.11 <span class="dayOfWeek">(수)</span> </a></li>
+                    <!--오늘 날짜 가운데 정리-->
+                    <li class="todayMatch"> 1.12 (목) <strong>TODAY</strong></li>
+                    <li><a href="#"> 1.13 <span class="dayOfWeek">(금)</span> </a></li>
+                    <li><a href="#"> 1.14 <span class="dayOfWeek">(토)</span> </a></li>
+                    <li><a href="#"> 1.15 <span class="dayOfWeek">(일)</span> </a></li>
+                    <li class="next"><a href="#"><i class="fa fa-chevron-right fa-lg"></i></a></li>
+                </ul>
+                <!--경기 리스트-->
+                <ul class="matchList">
+                    <!--내 구단 게임-->
+                    <li class="matchMine">
+                        <div class="matchTeam homeTeam">
+                            <img src="images/frBattle/logo_6.png" alt="한화이글스">
+                            <p class="teamName">한화</p>
+                        </div>
+                        <div class="matchScore">
+                            <strong class="myGame">MY GAME</strong>
+                            <strong class="score">10:10</strong>
+                            <p class="time">10회초</p>
+                            <!--내 구단게임 표시 아이콘-->
+                            <i class="fa fa-caret-up fa-2x"></i>
+                        </div>
+                        <div class="matchTeam awayTeam">
+                            <img src="images/frBattle/logo_1.png" alt="두산베어스">
+                            <p class="teamName">두산</p>
+                        </div>
+                    </li>
+                    <!--게임 시작 전-->
+                    <li class="matchBasic">
+                        <div class="matchTeam homeTeam">
+                            <img src="images/frBattle/logo_3.png" alt="기아타이거즈">
+                            <p class="teamName">기아</p>
+                        </div>
+                        <div class="matchScore">
+                            <strong class="score">VS</strong>
+                            <p class="time">18:30</p>
+                        </div>
+                        <div class="matchTeam awayTeam">
+                            <img src="images/frBattle/logo_4.png" alt="삼성라이온즈">
+                            <p class="teamName">삼성</p>
+                        </div>
+                    </li>
+                    <!--게임이 끝났을 경우-->
+                    <li class="matchEnd">
+                        <div class="matchTeam homeTeam">
+                            <img src="images/frBattle/logo_10.png" alt="KT위즈">
+                            <p class="teamName">KT</p>
+                        </div>
+                        <div class="matchScore">
+                            <strong class="score">4:2</strong>
+                            <p class="time">종료</p>
+                        </div>
+                        <div class="matchTeam awayTeam">
+                            <img src="images/frBattle/logo_9.png" alt="NC다이노스">
+                            <p class="teamName">NC</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="matchTeam homeTeam">
+                            <img src="images/frBattle/logo_7.png" alt="SK와이번스">
+                            <p class="teamName">SK</p>
+                        </div>
+                        <div class="matchScore">
+                            <strong class="score">4:2</strong>
+                            <p class="time">종료</p>
+                        </div>
+                        <div class="matchTeam awayTeam">
+                            <img src="images/frBattle/logo_5.png" alt="롯데자이언츠">
+                            <p class="teamName">롯데</p>
+                        </div>
+                    </li>
+                    <!--경기가 없을 경우-->
+                    <li class="matchNone">
+                        경기가 없습니다.
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <!--club section-->
+        <section class="clubSection">
+            <!--홈팀 경기-->
+            <div class="teamSection homeTeam">
+                <p class="teamPoint">
+                    <img src="images/frBattle/logo_6.png" alt="한화이글스"/>
+                    <strong class="teamName">한화 이글스</strong>
+                    <strong class="teamReal">777,777점</strong>
+                </p>
+                <!--comment section-->
+                <div class="commentBox">
+                    <div class="commentTitle">
+                        <strong>응원 댓글</strong>
+                        <button class="commentRefresh"><i class="fa fa-refresh fa-spin"></i>새로고침 <span class="second">60초</span></button>
+                    </div>
+                    <div class="commentInput">
+                        <textarea class="myTeamComment" placeholder="응원 댓글을 입력해주세요."></textarea>
+                        <strong class="count">0/70</strong>
+                        <button class="enter">등록</button>
+                    </div>
+                </div>
+
+                <!--comment list-->
+                <div class="teamComment">
+                    <ul class="commentList">
+                        <!--top랭커 작성 코멘트-->
+                        <li>
+                            <p>
+                                <strong class="nickname">김신혹은유신재</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                저 쪽 팀은 응원 안하나봐요?
+                            </p>
+                        </li>
+                        <!--응원댓글이 없을 경우-->
+                        <li>
+                            <p class="commentNone">
+                                응원 댓글이 없습니다.
+                            </p>
+                        </li>
+                        <!--작성자 본인 댓글-->
+                        <li class="active">
+                            <p>
+                                <strong class="nickname">불의군주라그나로스</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                불의 세례를 받아라!
+                            </p>
+                        </li>
+                        <!--디폴트-->
+                        <li>
+                            <p>
+                                <strong class="nickname">대족장실바나스</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                장난 칠 시간은 없다!<br>
+                                모두 없애라!
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">판타지스타디움</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">판타지스타디움</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">판타지스타디움</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">판타지스타디움</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">판타지스타디움</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">바리안린</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                깜뽀발싸!<br>
+                                아제로스를 위하여!
+                            </p>
+                        </li>
+                    </ul>
+                    <!--paging-->
+                    <ul class="paging">
+                        <li><a href="#"><i class="fa fa-caret-left"></i> 이전</a></li>
+                        <li class="on"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">55</a></li>
+                        <li><a href="#">다음 <i class="fa fa-caret-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--ranking section-->
+            <div class="rankSection">
+
+                <!--match state-->
+                <div class="matchState">
+                    <p class="matchResult leftR">
+                        <span class="mR victory">승</span>
+                        <span class="mR defeat hide">무</span>
+                        <span class="mR lose hide">패</span>
+                    </p>
+                    <ul class="matchNow">
+                        <li>
+                            <strong>경기전</strong>
+                            <p>라인업을 제출해주세요</p>
+                        </li>
+                        <li>
+                            <strong>경기중</strong>
+                            <p>랭킹은 1분마다 업데이트 됩니다</p>
+                        </li>
+                        <li>
+                            <strong>경기종료</strong>
+                            <p>응원댓글 작성이 종료되었습니다</p>
+                        </li>
+                        <li>
+                            <strong>경기취소</strong>
+                            <p>경기가 취소되었습니다</p>
+                        </li>
+                        <li>
+                            <strong>우천취소</strong>
+                            <p>경기가 취소되었습니다</p>
+                        </li>
+                    </ul>
+                    <p class="matchResult rightR">
+                        <span class="mR victory hide">승</span>
+                        <span class="mR defeat hide">무</span>
+                        <span class="mR lose">패</span>
+                    </p>
+                </div>
+
+                <!--my state-->
+                <div class="myState">
+                    <!--내 게임-->
+                    <div class="myGame hide">
+                        <p class="info">
+                            <img src="images/frBattle/logo_1.png" alt="두산 베어스"/>
+                            <strong class="myName">불의군주라그나로스</strong>
+                            <strong class="myPoint">7,777점</strong>
+                            <strong class="myRank">77,777위</strong>
+                        </p>
+                        <p class="lineupCheck">
+                            <strong>라인업제출</strong>
+                            <span class="lineup ok">제출</span>
+                            <span class="lineup hide">미제출</span>
+                        </p>
+                    </div>
+                    <!--타 구단 게임-->
+                    <div class="otherGame">
+                        <img class="leftLogo" src="images/frBattle/logo_3.png" alt="기아 타이거즈"/>
+                            <strong>MY GAME</strong>
+                            <a class="goMyGame" href="">내 경기 보러가기</a>
+                        <img class="rightLogo" src="images/frBattle/logo_4.png" alt="NC 다이노스"/>
+                    </div>
+                </div>
+
+                <!--ranking-->
+                <strong class="rankTitle">RANKING TOP 50</strong>
+                
+                <div class="rankWrap">
+                    <div class="rankState">
+                        <div class="teamRank leftTR">
+                            <p>
+                                <span class="se01">순위</span>
+                                <span class="se02">구단명</span>
+                                <span class="se03">점수</span>
+                            </p>
+                            <ul class="rankList">
+                                <li>
+                                    <span class="se01">1</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">2</span>
+                                    <span class="se02">불의군주라그..</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">3</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">4</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">5</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">6</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">7</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">8</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">9</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">10</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">11</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">12</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">13</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">14</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">15</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">16</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">17</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">18</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">19</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">20</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="teamRank rightTR">
+                            <p>
+                                <span class="se01">순위</span>
+                                <span class="se02">구단명</span>
+                                <span class="se03">점수</span>
+                            </p>
+                            <ul class="rankList">
+                                <li>
+                                    <span class="se01">1</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">2</span>
+                                    <span class="se02">불의군주라그..</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">3</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">4</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">5</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">6</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">7</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">8</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">9</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                                <li>
+                                    <span class="se01">10</span>
+                                    <span class="se02">지트릭스</span>
+                                    <span class="se03">20,000</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--원정팀-->
+            <div class=" teamSection awayTeam">
+                <p class="teamPoint">
+                    <img src="images/frBattle/logo_1.png" alt="두산베어스"/>
+                    <strong class="teamName">두산 베어스</strong>
+                    <strong class="teamReal">434,657점</strong>
+                </p>
+                <!--comment section-->
+                <div class="commentBox">
+                    <div class="commentTitle">
+                        <strong>응원 댓글</strong>
+                        <button class="commentRefresh"><i class="fa fa-refresh fa-spin"></i>새로고침<span class="second"> 60초</span></button>
+                    </div>
+                    <div class="commentInput">
+                        <textarea placeholder="소속구단 유저들만 작성할 수 있습니다."></textarea>
+                        <strong class="count">0/70</strong>
+                        <button class="enter">등록</button>
+                    </div>
+                </div>
+
+                <!--comment list-->
+                <div class="teamComment">
+                    <ul class="commentList">
+                        <li>
+                            <p>
+                                <strong class="nickname">자괴감맨</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                이러려고 만든 구단대전 아닌데 자괴감 들고 괴로워
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">지트릭스</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
+                            </p>
+                        </li>
+                        <li class="active">
+                            <p>
+                                <strong class="nickname">불의군주라그나로스</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                불의 세례를 받아라!
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">대족장실바나스</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                장난 칠 시간은 없다!<br>
+                                모두 없애라!
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">판타지스타디움</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">판타지스타디움</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">판타지스타디움</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <strong class="nickname">판타지스타디움</strong>
+                                <span class="commentDate">17.01.06 15:10</span>
+                            </p>
+                            <p class="comment">
+                                일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오육칠팔구십
+                            </p>
+                        </li>
+                    </ul>
+                    <!--paging-->
+                    <ul class="paging">
+                        <li><a href="#"><i class="fa fa-caret-left"></i> 이전</a></li>
+                        <li class="on"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">55</a></li>
+                        <li><a href="#">다음 <i class="fa fa-caret-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!--guide-->
+        <section class="popWrap">
+            <div class="guide" id="guide">
+                <p><i class="fa fa-info-circle fa-lg"></i> 구단대전 게임 가이드</p>
+                <ol>
+                    <li>1. 각 소속구단 상위 50인의 팀전포인트 평균 값으로 구단 간 경쟁하는 콘텐츠 입니다.</li>
+                    <li>2. 게임생성 시 선택하는 구단이 본인의 소속구단이 됩니다.</li>
+                    <li>3. 게임에서 라인업을 제출하면 자동으로 참여되며 경기가 종료되면 참여보상, 랭킹보상, 구단승리보상이 우편함으로 주어집니다.</li>
+                </ol>
+                <a class="close" href="#">확인</a>
+            </div>
+        </section>
+
+    </div>
+
+
+
+<script src="js/jquery-1.12.0.min.js" type="text/javascript"></script>
+<script src="js/frBattle.js" type="text/javascript"></script>
+</body>
+</html>
